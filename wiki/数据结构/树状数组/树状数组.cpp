@@ -44,7 +44,7 @@ int lowbit(int x) {
     // return x & (~x + 1);
 }
 
-void update(int i, int v) {
+void add(int i, int v) {
     while (i <= n) {
         c[i] += v;
         i += lowbit(i);
