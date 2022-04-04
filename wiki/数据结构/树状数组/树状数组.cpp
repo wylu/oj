@@ -35,9 +35,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int n = 8;
+vector<int> a{1, 2, 3, 4, 5, 6, 7, 8};
+int n = a.size();
 vector<int> c(n + 1);
-vector<int> a{0, 1, 2, 3, 4, 5, 6, 7, 8};
 
 int lowbit(int x) {
     return x & -x;
@@ -60,13 +60,20 @@ int getsum(int i) {
     return sum;
 }
 
+// fast init
 void init() {
     for (int i = 1; i <= n; i++) {
-        c[i] += a[i];
+        c[i] += a[i - 1];
         int j = i + lowbit(i);
         if (j <= n) c[j] += c[i];
     }
 }
+
+// void init() {
+//     for (int i = 1; i <= n; i++) {
+//         add(i, a[i - 1]);
+//     }
+// }
 
 void printVectorInt(vector<int>& vct) {
     printf("[");
